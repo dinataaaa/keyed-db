@@ -87,7 +87,7 @@ export default class KeyedDB<T, K> implements IKeyedDB<T, K> {
   deleteById(id: string, assertPresent: boolean = true) {
     const value = this.get(id)
     if (!value) {
-      if (assertPresent) throw new Error(`Value not found`)
+      if (assertPresent) return
       else return
     }
     return this.delete(value)
